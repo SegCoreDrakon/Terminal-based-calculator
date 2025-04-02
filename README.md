@@ -4,7 +4,7 @@
 # **SOMMARY**
 
 - [introduction](#introduction)
-  - [why does this project exist?](#why-i-made-this-project)
+  - [why does this project exist?](#why-did-made-this-project)
 
 - [small explanation about the program](#small-explanation-of-what-the-project-does)
   - [files](#files)
@@ -15,7 +15,7 @@
   
 - [how to contribute](#how-to-contribute)
   - [git commit](#git-commit-message)
-  - [submit issues or ideas](#send-issues-or-ideas)
+  - [submit issues or ideas](#submitting-issues-or-ideas)
     - [issues](#for-issues)
     - [ideas](#for-ideas)
 
