@@ -111,11 +111,16 @@ void Calculator::m_handle_choice() {
                     std::cout << "removing the logs folder..." << std::endl;
                     std::filesystem::remove_all("logs/");
                     std::cout << "logs folder removed" << std::endl;
+                    m_sleep_timer(5);
+                    ui.menu_display();
+                    m_handle_choice();
                     break;
 
                 default:
                     std::cout << "ERROR: cannot found the good calcul method" << std::endl;
-                    break;
+                    std::cin.ignore();
+                    std::cin.clear();
+                    m_handle_choice();
             } // end of switch condition
 
         } else if (int(oprt) == 7) {
@@ -126,6 +131,8 @@ void Calculator::m_handle_choice() {
             std::cout << "\nunknow option!\n" << std::endl;
             oprt = 0;
             m_sleep_timer(3);
+            std::cin.ignore();
+            std::cin.clear();
 
             // to avoid infinite loop
             // when an uncorrect numbed is provided
