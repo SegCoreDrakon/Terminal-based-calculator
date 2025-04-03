@@ -18,7 +18,7 @@
 #include "../include/save_system.hpp"
 #include "../include/terminal_ui.hpp"
 
-UI ui; ///< initialize UI display system for ASCII interface
+UI ui; // initialize UI display system for ASCII interface
 
 Calculator::Calculator() {};
 Calculator::~Calculator() {};
@@ -34,11 +34,11 @@ void Calculator::operation() {
 }
 
 void Calculator::m_set_result() {
-    std::cout << "\nresult: " << m_result;
+    std::cout << "result: " << m_result;
 
     history(m_result,  m_operation_type(m_oprt_type));
     m_sleep_timer(3);
-    system("clear");
+    ui.clear_screen();
     operation();
 }
 
@@ -66,78 +66,64 @@ void Calculator::m_handle_choice() {
     m_oprt_type = oprt;
 
     do {
+        switch (int(oprt)) {
+            case 1:
+                m_input_number();
+                m_result = m_addition(m_number1, m_number2);
+                m_set_result();
+                return;
 
-        if (int(oprt) == 1
-            || int(oprt) == 2
-            || int(oprt) == 3
-            || int(oprt) == 4
-            || int(oprt) == 5
-            || int(oprt) == 6) {
+            case 2:
+                m_input_number();
+                m_result = m_substraction(m_number1, m_number2);
+                m_set_result();
+                return;
 
-            switch (int(oprt)) {
-                case 1:
-                    m_input_number();
-                    m_result = m_addition(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 3:
+                m_input_number();
+                m_result = m_multiplication(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 2:
-                    m_input_number();
-                    m_result = m_substraction(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 4:
+                m_input_number();
+                m_result = m_division(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 3:
-                    m_input_number();
-                    m_result = m_multiplication(m_number1, m_number2);
-                    m_set_result();
-                    return;
-
-                case 4:
-                    m_input_number();
-                    m_result = m_division(m_number1, m_number2);
-                    m_set_result();
-                    return;
-
-                case 5:
-                    ui.logs_display();
-                    m_sleep_timer(5);
-                    system("clear");
-                    ui.menu_display();
-                    m_handle_choice();
-                    break;
-
-                case 6:
-                    std::cout << "removing the logs folder...\n";
-                    std::filesystem::remove_all("logs/");
-                    std::cout << "logs folder removed\n";
-                    break;
-
-                default:
-                    std::cout << "ERROR: cannot found the good calcul method\n";
-                    break;
-            } // end of switch condition
-
-        } else if (int(oprt) == 7) {
-            save_history_count();
-            std::cout << "thank to use my calculator, bye!";
-            std::exit(0);
-        } else {
-            std::cout << "unknow option!\n";
-            oprt = 0;
-            m_sleep_timer(3);
-
-            // to avoid infinite loop
-            // when an uncorrect numbed is provided
-            if (int(oprt) == 0) {
+            case 5:
+                ui.logs_display();
+                m_sleep_timer(5);
                 system("clear");
-                std::cin.clear();
                 ui.menu_display();
                 m_handle_choice();
-            }
+                continue;
 
-            continue;
-        }
+            case 6:
+                std::cout << "removing the logs folder...\n";
+                std::filesystem::remove_all("logs/");
+                std::cout << "logs folder removed\n";
+                continue;
+
+            case 7:
+                save_history_count();
+                std::cout << "thank to use my calculator, bye!\n";
+                std::exit(0);
+
+            default:
+                std::cout << "unknow option!\n";
+                m_sleep_timer(3);
+
+                // to avoid infinite loop
+                // when an uncorrect numbed is provided
+                oprt = 0;
+                if (int(oprt) == 0) {
+                    std::cin.clear();
+                    ui.clear_screen();
+                    ui.menu_display();
+                    m_handle_choice();
+                }
+            } // end of switch condition
 
     } while (true);
 }

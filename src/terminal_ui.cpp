@@ -43,11 +43,19 @@ void UI::logs_display() const {
                                    "--------------------------\n";
 
     std::cout << start_data_history << "\n";
-    std::cout << system("cat logs/history.log") << "\n";
+    std::cout << std::system("cat logs/history.log") << "\n";
     std::cout << end_data_history << "\n";
 }
 
 void UI::number_display() const {
+    std::cout << "+====[ NUMBER1 ]===+";
 
+}
 
+void UI::clear_screen() const {
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
 }

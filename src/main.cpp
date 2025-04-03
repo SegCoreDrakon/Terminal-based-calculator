@@ -43,6 +43,7 @@
 
 #include "../include/calculator.hpp"
 #include "../include/save_system.hpp"
+#include <cmath>
 
 int main() {
   Calculator* calc = new Calculator;

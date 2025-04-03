@@ -12,6 +12,7 @@
 
 class UI {
 private:
+
 public:
     UI();
     ~UI();
@@ -19,6 +20,7 @@ public:
     void menu_display() const;
     void logs_display() const;
     void number_display() const;
+    void clear_screen() const;
 };
 
 #endif // TERMINAL_UI_HPP
