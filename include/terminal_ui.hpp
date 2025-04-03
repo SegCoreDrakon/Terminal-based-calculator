@@ -11,8 +11,6 @@
 #define TERMINAL_UI_HPP
 
 class UI {
-private:
-
 public:
     UI();
     ~UI();
