@@ -110,12 +110,14 @@ Normally, makefile are created to compile only the program, but not execute it. 
 program immediately after compilling, type `make execute`
 and it will compile + execute the program.
 
+if you already used `make` you need to type `./calculator` to execute the program, and then, follow
+all instruction inside the calculator
+
 ## **Manually compilation**
 
 to manually compile the program, it will take a little longer, but it is similar to using 
 makefile, but instead of using make, we do it manually by compiling file by file, here is a step 
-by step to compile 
-the program:
+by step to compile the program:
 
 **/!\\ BE SURE TO HAVE GCC OR CLANG INSTALLED ON YOUR COMPUTER /!\\**
 
