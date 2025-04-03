@@ -34,7 +34,7 @@ void Calculator::operation() {
 }
 
 void Calculator::m_set_result() {
-    std::cout << "\nresult: " << m_result << std::endl;
+    std::cout << "\nresult: " << m_result;
 
     history(m_result,  m_operation_type(m_oprt_type));
     m_sleep_timer(3);
@@ -108,22 +108,22 @@ void Calculator::m_handle_choice() {
                     break;
 
                 case 6:
-                    std::cout << "removing the logs folder..." << std::endl;
+                    std::cout << "removing the logs folder...\n";
                     std::filesystem::remove_all("logs/");
-                    std::cout << "logs folder removed" << std::endl;
+                    std::cout << "logs folder removed\n";
                     break;
 
                 default:
-                    std::cout << "ERROR: cannot found the good calcul method" << std::endl;
+                    std::cout << "ERROR: cannot found the good calcul method\n";
                     break;
             } // end of switch condition
 
         } else if (int(oprt) == 7) {
             save_history_count();
-            std::cout << "\nthank to use my calculator, bye!" << std::endl;
+            std::cout << "thank to use my calculator, bye!";
             std::exit(0);
         } else {
-            std::cout << "\nunknow option!\n" << std::endl;
+            std::cout << "unknow option!\n";
             oprt = 0;
             m_sleep_timer(3);
 
