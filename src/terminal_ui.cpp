@@ -16,16 +16,16 @@ UI::UI() {};
 UI::~UI() {};
 
 void UI::menu_display() const {
-    std::cout << "+========================+" << std::endl;
-    std::cout << "|  choose an option      |" << std::endl;
-    std::cout << "|  1) addition           |" << std::endl;
-    std::cout << "|  2) substraction       |" << std::endl;
-    std::cout << "|  3) multiplication     |" << std::endl;
-    std::cout << "|  4) division           |" << std::endl;
-    std::cout << "|  5) check logs         |" << std::endl;
-    std::cout << "|  6) delete logs        |" << std::endl;
-    std::cout << "|  7) quit               |" << std::endl;
-    std::cout << "+========================+" << std::endl;
+    std::cout << "+========================+\n";
+    std::cout << "|  choose an option      |\n";
+    std::cout << "|  1) addition           |\n";
+    std::cout << "|  2) substraction       |\n";
+    std::cout << "|  3) multiplication     |\n";
+    std::cout << "|  4) division           |\n";
+    std::cout << "|  5) check logs         |\n";
+    std::cout << "|  6) delete logs        |\n";
+    std::cout << "|  7) quit               |\n";
+    std::cout << "+========================+\n";
     std::cout << "option: ";
 }
 
@@ -42,9 +42,9 @@ void UI::logs_display() const {
                                    "[ENDING HISTORY DATA FILE]"
                                    "--------------------------\n";
 
-    std::cout << start_data_history << std::endl;
-    std::cout << system("cat logs/history.log") << std::endl;
-    std::cout << end_data_history << std::endl;
+    std::cout << start_data_history << "\n";
+    std::cout << system("cat logs/history.log") << "\n";
+    std::cout << end_data_history << "\n";
 }
 
 void UI::number_display() const {
