@@ -11,6 +11,7 @@
 #include "../include/terminal_ui.hpp"
 
 #include <cstdlib>
+#include <string>
 
 UI::UI() {};
 UI::~UI() {};
@@ -26,7 +27,8 @@ void UI::menu_display() const {
     std::cout << "|  6) delete logs        |\n";
     std::cout << "|  7) quit               |\n";
     std::cout << "+========================+\n";
-    std::cout << "option: ";
+    std::cout << "|  option:               |\n";
+    std::cout << "+========================+\n";
 }
 
 /**
@@ -48,8 +50,24 @@ void UI::logs_display() const {
 }
 
 void UI::number_display() const {
-    std::cout << "+====[ NUMBER1 ]===+";
+    std::cout << "+=======[ NUMBER1 ]======+\n";
+    std::cout << "|                        |\n";
+    std::cout << "+=======[ NUMBER2 ]======+\n";
+    std::cout << "|                        |\n";
+    std::cout << "+========================+\n";
+}
 
+void UI::move(int A, int G, bool B) {
+
+    if (B) {
+        std::cout << "\033[" << A << "B"
+                  << "\033[" << G << "G";
+    } else if (!B) {
+        std::cout << "\033[" << A << "A"
+                  << "\033[" << G << "G";
+    } else {
+        std::cout << "\033[10B" << " ERROR: bool B in 'move()' is undefined or missing";
+    }
 }
 
 void UI::clear_screen() const {

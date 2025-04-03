@@ -8,6 +8,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -24,19 +25,21 @@ Calculator::Calculator() {};
 Calculator::~Calculator() {};
 
 double Calculator::m_addition(double val1,  double val2) { return val1 + val2; }
-double Calculator::m_substraction(double val1,  double val2) { return val1 - val2; }
+double Calculator::m_subtraction(double val1,  double val2) { return val1 - val2; }
 double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
 void Calculator::operation() {
     ui.menu_display();
+    ui.move(2, 12, false);
     m_handle_choice();
 }
 
 void Calculator::m_set_result() {
     std::cout << "result: " << m_result;
 
-    history(m_result,  m_operation_type(m_oprt_type));
+    history(static_cast<float>(m_result),
+            m_operation_type(m_oprt_type));
     m_sleep_timer(3);
     ui.clear_screen();
     operation();
@@ -46,10 +49,13 @@ void Calculator::m_input_number() {
     double number1 = 0;
     double number2 = 0;
 
-    std::cout << "" << std::endl;
+    ui.number_display();
+
+    ui.move(4, 2, false);
     std::cout << "choose number 1: ";
     std::cin >> number1;
-    std::cout << "choose number 2: ";
+    ui.move(0, 2, true);
+    std::cout<< "choose number 2: ";
     std::cin >> number2;
 
     m_number1 = number1;
@@ -75,19 +81,19 @@ void Calculator::m_handle_choice() {
 
             case 2:
                 m_input_number();
-                m_result = m_substraction(m_number1, m_number2);
+                m_result = m_subtraction(m_number1, m_number2);
                 m_set_result();
                 return;
 
             case 3:
                 m_input_number();
-                m_result = m_multiplication(m_number1, m_number2);
+                m_result = m_multiplication(m_number1,m_number2);
                 m_set_result();
                 return;
 
             case 4:
                 m_input_number();
-                m_result = m_division(m_number1, m_number2);
+                m_result = m_division(m_number1,m_number2);
                 m_set_result();
                 return;
 
@@ -96,6 +102,7 @@ void Calculator::m_handle_choice() {
                 m_sleep_timer(5);
                 system("clear");
                 ui.menu_display();
+                ui.move(2, 12, false);
                 m_handle_choice();
                 continue;
 
@@ -111,6 +118,7 @@ void Calculator::m_handle_choice() {
                 std::exit(0);
 
             default:
+                std::cout << "\033[1A" << "\033[12G";
                 std::cout << "unknow option!\n";
                 m_sleep_timer(3);
 
@@ -121,6 +129,7 @@ void Calculator::m_handle_choice() {
                     std::cin.clear();
                     ui.clear_screen();
                     ui.menu_display();
+                    ui.move(2, 12, false);
                     m_handle_choice();
                 }
             } // end of switch condition

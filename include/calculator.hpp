@@ -25,7 +25,7 @@ private:
     double m_number1; ///< number 1 of user input
     double m_number2; ///< number 2 of user input
 
-    float m_result; ///< result after computation of numbers
+    double m_result; ///< result after computation of numbers
 
     /**
      * @details
@@ -62,7 +62,7 @@ private:
     * @param val2 value 2 of the number
     * @return substraction of val1 and val2
     */
-    double m_substraction(double val1, double val2);
+    double m_subtraction(double val1, double val2);
 
     /**
     * @param val1 value 1 of the number

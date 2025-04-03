@@ -25,4 +25,4 @@ $(TARGET): $(OBJ)
 
 clean:
 	@echo "removing all object files and the executable"
-	rm -rf $(TARGET) $(OBJ) src/*.o
+	rm -rf $(TARGET) src/*.o
