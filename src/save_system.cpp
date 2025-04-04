@@ -17,8 +17,8 @@ Calculator calc;
 
 void save_history_count() {
     std::cout << "saving data\n";
-    std::ofstream file("logs/his_count.txt", std::ios::trunc);
 
+    std::ofstream file("logs/his_count.txt", std::ios::trunc);
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
     }
@@ -32,8 +32,8 @@ void save_history_count() {
 void load_history_count() {
 
     std::cout << "loading data\n";
-    std::ifstream file("logs/his_count.txt");
 
+    std::ifstream file("logs/his_count.txt");
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
     }
@@ -66,7 +66,7 @@ void history(float val, std::string oprt) {
 
     file << "--------------------[HISTORY]--------------------\n";
     file << "HIS: " << std::to_string(calc.his) << ", TYPE: " << oprt
-         << ", RESULT: " << val << std::endl;
+         << ", RESULT: " << val << "\n";
     file << "--------------------[  END  ]--------------------\n";
 
     file.flush();
