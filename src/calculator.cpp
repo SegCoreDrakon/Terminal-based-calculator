@@ -91,14 +91,15 @@ void Calculator::operation() {
             case 5:
                 UI.logs_display();
                 m_sleep_timer(5);
-                system("clear");
-                UI.menu_display();
+                UI.clear_screen();
                 continue;
 
             case 6:
                 std::cout << "removing the logs folder...\n";
                 std::filesystem::remove_all("logs/");
                 std::cout << "logs folder removed\n";
+                m_sleep_timer(2);
+                UI.clear_screen();
                 break;
 
             case 7:
