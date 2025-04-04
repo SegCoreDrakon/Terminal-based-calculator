@@ -95,7 +95,6 @@ private:
      * the possiblity of infinity loop, remove them can cause undefined action
      * and may crash the whole program
      */
-    void m_handle_choice();
 
     void m_sleep_timer(int time);
 

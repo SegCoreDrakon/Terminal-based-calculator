@@ -28,10 +28,6 @@ double Calculator::m_substraction(double val1,  double val2) { return val1 - val
 double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
-void Calculator::operation() {
-    UI.menu_display();
-    m_handle_choice();
-}
 
 void Calculator::m_set_result() {
     std::cout << "result: " << m_result;
@@ -58,52 +54,52 @@ void Calculator::m_input_number() {
     std::cin.clear();
 }
 
-void Calculator::m_handle_choice() {
-    int oprt;
-
-    std::cin >> oprt;
-
-    m_oprt_type = oprt;
-
+void Calculator::operation() {
     do {
+        UI.menu_display();
+
+        int oprt;
+        std::cin >> oprt;
+
+        m_oprt_type = oprt;
+
         switch (int(oprt)) {
             case 1:
                 m_input_number();
                 m_result = m_addition(m_number1, m_number2);
                 m_set_result();
-                return;
+                break;
 
             case 2:
                 m_input_number();
                 m_result = m_substraction(m_number1, m_number2);
                 m_set_result();
-                return;
+                break;
 
             case 3:
                 m_input_number();
                 m_result = m_multiplication(m_number1, m_number2);
                 m_set_result();
-                return;
+                break;
 
             case 4:
                 m_input_number();
                 m_result = m_division(m_number1, m_number2);
                 m_set_result();
-                return;
+                break;
 
             case 5:
                 UI.logs_display();
                 m_sleep_timer(5);
                 system("clear");
                 UI.menu_display();
-                m_handle_choice();
                 continue;
 
             case 6:
                 std::cout << "removing the logs folder...\n";
                 std::filesystem::remove_all("logs/");
                 std::cout << "logs folder removed\n";
-                continue;
+                break;
 
             case 7:
                 save_history_count();
@@ -112,17 +108,12 @@ void Calculator::m_handle_choice() {
 
             default:
                 std::cout << "unknow option!\n";
-                m_sleep_timer(3);
+                m_sleep_timer(2);
 
-                // to avoid infinite loop
-                // when an uncorrect numbed is provided
-                oprt = 0;
-                if (int(oprt) == 0) {
-                    std::cin.clear();
-                    UI.clear_screen();
-                    UI.menu_display();
-                    m_handle_choice();
-                }
+                std::cin.clear();
+                UI.clear_screen();
+                UI.menu_display();
+                continue;
             } // end of switch condition
 
     } while (true);
