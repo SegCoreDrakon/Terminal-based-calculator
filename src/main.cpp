@@ -50,7 +50,6 @@ int main() {
 
   load_history_count();
   calc->operation();
-  save_history_count();
 
   return 0;
 }
