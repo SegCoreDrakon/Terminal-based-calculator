@@ -17,6 +17,8 @@
 #include "../include/calculator.hpp"
 #include "../include/save_system.hpp"
 #include "../include/terminal_ui.hpp"
+#include "../include/error.hpp"
+
 
 UI UI; ///< initialize UI display system for ASCII interface
 
@@ -43,19 +45,26 @@ void Calculator::m_set_result() {
 }
 
 void Calculator::m_input_number() {
-    double number1 = 0;
-    double number2 = 0;
+    std::string input1 = "";
+    std::string input2 = "";
+    float number1, number2;
 
     std::cout << "" << std::endl;
     std::cout << "choose number 1: ";
-    std::cin >> number1;
+    std::cin >> input1;
     std::cout << "choose number 2: ";
-    std::cin >> number2;
+    std::cin >> input2;
+    if (check_number(input1) == true &&
+        check_number(input2) == true)
+    {
+        number2 = std::stoi(input2);
+    }
 
-    m_number1 = number1;
-    m_number2 = number2;
+    m_number1 = int(number1);
+    m_number2 = int(number2);
 
     std::cin.clear();
+    std::cin.ignore();
 }
 
 void Calculator::m_handle_choice() {
