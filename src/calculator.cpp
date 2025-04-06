@@ -24,7 +24,7 @@ Calculator::Calculator() {};
 Calculator::~Calculator() {};
 
 double Calculator::m_addition(double val1,  double val2) { return val1 + val2; }
-double Calculator::m_substraction(double val1,  double val2) { return val1 - val2; }
+double Calculator::m_subtraction(double val1,  double val2) { return val1 - val2; }
 double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
@@ -83,7 +83,7 @@ void Calculator::m_handle_choice() {
 
                 case 2:
                     m_input_number();
-                    m_result = m_substraction(m_number1, m_number2);
+                    m_result = m_subtraction(m_number1, m_number2);
                     m_set_result();
                     return;
 
