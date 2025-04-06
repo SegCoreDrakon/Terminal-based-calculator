@@ -18,7 +18,7 @@
 #include "../include/save_system.hpp"
 #include "../include/terminal_ui.hpp"
 
-UI ui; ///< initialize UI display system for ASCII interface
+UI UI; ///< initialize UI display system for ASCII interface
 
 Calculator::Calculator() {};
 Calculator::~Calculator() {};
@@ -29,7 +29,7 @@ double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
 void Calculator::operation() {
-    ui.menu_display();
+    UI.menu_display();
     m_handle_choice();
 }
 
@@ -100,10 +100,10 @@ void Calculator::m_handle_choice() {
                     return;
 
                 case 5:
-                    ui.logs_display();
+                    UI.logs_display();
                     m_sleep_timer(5);
                     system("clear");
-                    ui.menu_display();
+                    UI.menu_display();
                     m_handle_choice();
                     break;
 
@@ -132,7 +132,7 @@ void Calculator::m_handle_choice() {
             if (int(oprt) == 0) {
                 system("clear");
                 std::cin.clear();
-                ui.menu_display();
+                UI.menu_display();
                 m_handle_choice();
             }
 
