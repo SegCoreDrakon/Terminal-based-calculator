@@ -25,7 +25,11 @@ private:
     double m_number1; ///< number 1 of user input
     double m_number2; ///< number 2 of user input
 
+<<<<<<< HEAD
     double m_result; ///< result after computation of numbers
+=======
+    float m_result; ///< result after computation of numbers
+>>>>>>> 43301353abf024589b00075df1463ec1dca0a5b1
 
     /**
      * @details
@@ -62,7 +66,11 @@ private:
     * @param val2 value 2 of the number
     * @return substraction of val1 and val2
     */
+<<<<<<< HEAD
     double m_subtraction(double val1, double val2);
+=======
+    double m_substraction(double val1, double val2);
+>>>>>>> 43301353abf024589b00075df1463ec1dca0a5b1
 
     /**
     * @param val1 value 1 of the number

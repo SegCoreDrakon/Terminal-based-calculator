@@ -11,6 +11,10 @@
 #define TERMINAL_UI_HPP
 
 class UI {
+<<<<<<< HEAD
+=======
+private:
+>>>>>>> 43301353abf024589b00075df1463ec1dca0a5b1
 public:
     UI();
     ~UI();
@@ -18,10 +22,13 @@ public:
     void menu_display() const;
     void logs_display() const;
     void number_display() const;
+<<<<<<< HEAD
     void result_display() const;
     void clear_screen() const;
 
     void move(int A, int G, bool B);
+=======
+>>>>>>> 43301353abf024589b00075df1463ec1dca0a5b1
 };
 
 #endif // TERMINAL_UI_HPP
