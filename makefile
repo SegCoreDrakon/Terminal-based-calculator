@@ -4,7 +4,6 @@ SRC = src/main.cpp \
       src/calculator.cpp \
       src/save_system.cpp \
       src/terminal_ui.cpp \
-      src/error.cpp \
 
 CXXFLAG = -Wall \
           -Wextra \
