@@ -1,12 +1,20 @@
 TARGET = calculator
 
-SRC = src/main.cpp src/calculator.cpp \
-      src/save_system.cpp src/terminal_ui.cpp
+SRC = src/main.cpp \
+      src/calculator.cpp \
+      src/save_system.cpp \
+      src/terminal_ui.cpp \
+      src/error.cpp \
 
-CXXFLAG = -Wall -Wextra -Wpedantic -Wshadow \
-          -Wconversion -Wsign-conversion \
-          -Wnull-dereference -Wdouble-promotion \
-          --all-warnings
+CXXFLAG = -Wall \
+          -Wextra \
+          -Wpedantic \
+          -Wshadow \
+          -Wconversion \
+          -Wsign-conversion \
+          -Wnull-dereference \
+          -Wdouble-promotion \
+          --all-warnings \
 
 GCC = g++
 
