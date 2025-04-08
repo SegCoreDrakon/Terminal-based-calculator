@@ -32,12 +32,12 @@ OBJ = $(SRC:.cpp=.o)
 # use debug mode in the compilation
 ifeq ($(DEBUG),1)
 CXXFLAGS += -g
+else ifeq ($(DEBUG-OPTI),1)
+CXXFLAGS += -Og
 endif
 
+
 # use debug + optimization in the compilation
-ifeq ($DEBUG-OPTI),1)
-CXXFLAGS += -og
-endif
 
 # add the number of optimization the user set
 # optimization number can be 1, 2, or 3,
