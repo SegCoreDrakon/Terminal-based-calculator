@@ -17,7 +17,6 @@
 #include "../include/calculator.hpp"
 #include "../include/save_system.hpp"
 #include "../include/terminal_ui.hpp"
-#include "../include/error.hpp"
 
 
 UI UI; ///< initialize UI display system for ASCII interface
@@ -36,7 +35,7 @@ void Calculator::operation() {
 }
 
 void Calculator::m_set_result() {
-    std::cout << "\nresult: " << m_result;
+    std::cout << "result: " << m_result;
 
     history(m_result,  m_operation_type(m_oprt_type));
     m_sleep_timer(3);
@@ -45,26 +44,22 @@ void Calculator::m_set_result() {
 }
 
 void Calculator::m_input_number() {
-    std::string input1 = "";
-    std::string input2 = "";
+    std::string input1;
+    std::string input2;
     float number1, number2;
 
-    std::cout << "" << std::endl;
+    std::cout << "\n";
     std::cout << "choose number 1: ";
     std::cin >> input1;
     std::cout << "choose number 2: ";
     std::cin >> input2;
-    if (check_number(input1) == true &&
-        check_number(input2) == true)
-    {
-        number2 = std::stoi(input2);
-    }
+
 
     m_number1 = int(number1);
     m_number2 = int(number2);
 
     std::cin.clear();
-    std::cin.ignore();
+    std::cin.ignore(9999, '\n');
 }
 
 void Calculator::m_handle_choice() {
@@ -84,47 +79,47 @@ void Calculator::m_handle_choice() {
             || int(oprt) == 6) {
 
             switch (int(oprt)) {
-                case 1:
-                    m_input_number();
-                    m_result = m_addition(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 1:
+                m_input_number();
+                m_result = m_addition(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 2:
-                    m_input_number();
-                    m_result = m_subtraction(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 2:
+                m_input_number();
+                m_result = m_subtraction(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 3:
-                    m_input_number();
-                    m_result = m_multiplication(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 3:
+                m_input_number();
+                m_result = m_multiplication(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 4:
-                    m_input_number();
-                    m_result = m_division(m_number1, m_number2);
-                    m_set_result();
-                    return;
+            case 4:
+                m_input_number();
+                m_result = m_division(m_number1, m_number2);
+                m_set_result();
+                return;
 
-                case 5:
-                    UI.logs_display();
-                    m_sleep_timer(5);
-                    system("clear");
-                    UI.menu_display();
-                    m_handle_choice();
-                    break;
+            case 5:
+                UI.logs_display();
+                m_sleep_timer(5);
+                system("clear");
+                UI.menu_display();
+                m_handle_choice();
+                break;
 
-                case 6:
-                    std::cout << "removing the logs folder...\n";
-                    std::filesystem::remove_all("logs/");
-                    std::cout << "logs folder removed\n";
-                    break;
+            case 6:
+                std::cout << "removing the logs folder...\n";
+                std::filesystem::remove_all("logs/");
+                std::cout << "logs folder removed\n";
+                break;
 
-                default:
-                    std::cout << "ERROR: cannot found the good calcul method\n";
-                    break;
+            default:
+                std::cout << "ERROR: cannot found the good calcul method\n";
+                break;
             } // end of switch condition
 
         } else if (int(oprt) == 7) {
@@ -141,10 +136,10 @@ void Calculator::m_handle_choice() {
             if (int(oprt) == 0) {
                 system("clear");
                 std::cin.clear();
+                std::cin.ignore(9999, '\n');
                 UI.menu_display();
                 m_handle_choice();
             }
-
             continue;
         }
 
@@ -156,8 +151,7 @@ void Calculator::m_handle_choice() {
  * @see m_set_result()
  */
 std::string Calculator::m_operation_type(int oprt_type) {
-    switch (oprt_type)
-    {
+    switch (oprt_type) {
     case 1:
         return "addition";
         break;
