@@ -231,4 +231,4 @@ Every commit made by someone will be listed here with some details (like "new co
 
 ### **CONTRIBUTORS:**
   
-  not yet.
+  namelessChokko (opened an issue for a bug)
