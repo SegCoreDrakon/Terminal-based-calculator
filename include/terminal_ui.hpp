@@ -18,10 +18,6 @@ public:
     void menu_display() const;
     void logs_display() const;
     void number_display() const;
-    void result_display() const;
-    void clear_screen() const;
-
-    void move(int A, int G, bool B);
 };
 
 #endif // TERMINAL_UI_HPP
