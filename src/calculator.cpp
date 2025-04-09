@@ -114,6 +114,9 @@ void Calculator::m_handle_choice() {
                 std::cout << "removing the logs folder...\n";
                 std::filesystem::remove_all("logs/");
                 std::cout << "logs folder removed\n";
+                m_sleep_timer(2);
+                std::system("clear");
+                operation();
                 break;
 
             default:
