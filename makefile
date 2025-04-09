@@ -16,12 +16,14 @@ CXXFLAGS = -Wall \
           -Wsign-conversion \
           -Wnull-dereference \
           -Wdouble-promotion \
+          -Wno-uninitialized \
           --all-warnings \
 
 # parameters for user
 DEBUG-OPTI =
 OPTI =
 DEBUG =
+CLANG =
 
 # compiler
 GCC = g++
@@ -36,6 +38,10 @@ else ifeq ($(DEBUG-OPTI),1)
 CXXFLAGS += -Og
 endif
 
+ifeq ($(CLANG),1)
+GCC = clang++
+CXXFLAGS += -stdlib=libc++
+endif
 
 # use debug + optimization in the compilation
 
