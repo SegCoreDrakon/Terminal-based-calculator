@@ -35,7 +35,8 @@ void Calculator::operation() {
 }
 
 void Calculator::m_set_result() {
-    std::cout << "result: " << m_result;
+    std::cout << "\nresult: " << m_result;
+    std::cout.flush();
 
     history(m_result,  m_operation_type(m_oprt_type));
     m_sleep_timer(3);
@@ -44,19 +45,17 @@ void Calculator::m_set_result() {
 }
 
 void Calculator::m_input_number() {
-    std::string input1;
-    std::string input2;
-    float number1, number2;
+    double number1, number2;
 
     std::cout << "\n";
     std::cout << "choose number 1: ";
-    std::cin >> input1;
+    std::cin >> number1;
     std::cout << "choose number 2: ";
-    std::cin >> input2;
+    std::cin >> number2;
 
 
-    m_number1 = int(number1);
-    m_number2 = int(number2);
+    m_number1 = static_cast<float>(number1);
+    m_number2 = static_cast<float>(number2);
 
     std::cin.clear();
     std::cin.ignore(9999, '\n');
@@ -105,7 +104,7 @@ void Calculator::m_handle_choice() {
 
             case 5:
                 UI.logs_display();
-                m_sleep_timer(5);
+                m_sleep_timer(3);
                 system("clear");
                 UI.menu_display();
                 m_handle_choice();
