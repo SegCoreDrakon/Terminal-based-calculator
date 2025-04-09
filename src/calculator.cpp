@@ -131,6 +131,8 @@ void Calculator::m_handle_choice() {
             std::cout << "unknow option!\n";
             oprt = 0;
             m_sleep_timer(3);
+            std::cin.ignore();
+            std::cin.clear();
 
             // to avoid infinite loop
             // when an uncorrect numbed is provided
