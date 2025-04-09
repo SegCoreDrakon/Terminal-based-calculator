@@ -17,8 +17,13 @@ Calculator calc;
 
 void save_history_count() {
     std::cout << "saving data\n";
+<<<<<<< HEAD
     std::ofstream file("logs/his_count.txt", std::ios::trunc);
 
+=======
+
+    std::ofstream file("logs/his_count.txt", std::ios::trunc);
+>>>>>>> segcoredrakon-fix
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
     }
@@ -32,8 +37,13 @@ void save_history_count() {
 void load_history_count() {
 
     std::cout << "loading data\n";
+<<<<<<< HEAD
     std::ifstream file("logs/his_count.txt");
 
+=======
+
+    std::ifstream file("logs/his_count.txt");
+>>>>>>> segcoredrakon-fix
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
     }
@@ -54,7 +64,10 @@ void load_history_count() {
 void history(float val, std::string oprt) {
 
     std::ofstream file("logs/history.log", std::ios::app);
+<<<<<<< HEAD
 
+=======
+>>>>>>> segcoredrakon-fix
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
     }

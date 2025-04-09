@@ -60,9 +60,9 @@ private:
     /**
     * @param val1 value 1 of the number
     * @param val2 value 2 of the number
-    * @return substraction of val1 and val2
+    * @return subtraction of val1 and val2
     */
-    double m_substraction(double val1, double val2);
+    double m_subtraction(double val1, double val2);
 
     /**
     * @param val1 value 1 of the number

@@ -1,0 +1,5 @@
+logs/*
+doc/*
+his_count.txt
+*.o
+calculator
