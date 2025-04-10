@@ -106,10 +106,11 @@ void Calculator::m_handle_choice() {
                 return;
 
             case 5:
-                UI.move(4, 1, false, true);
+                UI.clear();
                 UI.logs_display();
                 m_sleep_timer(3);
                 UI.clear();
+
                 UI.menu_display();
                 UI.move(2, 13, true, false);
                 m_handle_choice();
