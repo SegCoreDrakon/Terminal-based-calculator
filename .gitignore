@@ -2,7 +2,7 @@ logs/
 doc/
 
 # delete all file who need to me edited with every modification
-# to let users create by themself
+# to let users create it by themself
 AppImage/.DirIcon
 AppImage/AppRun
 AppImage/usr/bin/calculator
