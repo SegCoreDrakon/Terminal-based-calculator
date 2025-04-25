@@ -24,9 +24,16 @@ UI UI; ///< initialize UI display system for ASCII interface
 Calculator::Calculator() {};
 Calculator::~Calculator() {};
 
+double Calculator::m_division(double val1,  double val2) {
+    if (val1 == 0 || val2 == 0) {
+        std::cout << "cannot divide by 0, abording..." << std::endl;
+        return 0;
+    } else {
+        return val1 / val2;
+    }
+}
 double Calculator::m_addition(double val1,  double val2) { return val1 + val2; }
 double Calculator::m_subtraction(double val1,  double val2) { return val1 - val2; }
-double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
 void Calculator::operation() {
