@@ -3,7 +3,7 @@
  * @brief the header of the UI system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.0.14
+ * @version 0.1.0
  */
 
 #pragma once
@@ -17,7 +17,6 @@ public:
 
     void menu_display() const;
     void logs_display() const;
-    void number_display() const;
 };
 
 #endif // TERMINAL_UI_HPP

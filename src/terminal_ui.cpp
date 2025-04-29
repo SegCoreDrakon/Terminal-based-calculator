@@ -46,8 +46,3 @@ void UI::logs_display() const {
     std::cout << system("cat logs/history.log") << "\n";
     std::cout << end_data_history << "\n";
 }
-
-void UI::number_display() const {
-
-
-}

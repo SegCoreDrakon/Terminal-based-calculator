@@ -3,7 +3,7 @@
  * @brief the header base of the calculator system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.1.5
+ * @version 0.1.6
  */
 
 #include <string>
