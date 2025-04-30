@@ -204,7 +204,7 @@ using multiple convention, like mixing `m_my_var` and `my_var`, even if both are
 The program has a few roadmaps that I want to complete before makings this project as 
 "terminated." Here are the roadmaps:
 
-  - **Make an aesthetic UI for the entire project:** - `[###--]` ~10%
+  - **Make an aesthetic UI for the entire project:** - `[###--]` ~40%
 
   - **Make the project fully safe for all dangerous calculations (like division by 0)** - 
 `[XXXXX]` not implemented yet.

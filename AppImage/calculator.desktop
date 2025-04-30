@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal Calculator
+Exec=calculator
+Icon=calculator
+Terminal=true
+Categories=Utility;
+
