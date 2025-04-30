@@ -1,5 +1,14 @@
-logs/*
-doc/*
-his_count.txt
+logs/
+doc/
+
+# delete all file who need to me edited with every modification
+# to let users create it by themself
+AppImage/.DirIcon
+AppImage/AppRun
+AppImage/usr/bin/calculator
+
 *.o
+*.AppImage
+
+his_count.txt
 calculator

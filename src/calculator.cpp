@@ -24,33 +24,44 @@ UI UI; ///< initialize UI display system for ASCII interface
 Calculator::Calculator() {};
 Calculator::~Calculator() {};
 
+double Calculator::m_division(double val1,  double val2) {
+    if (val1 == 0 || val2 == 0) {
+        std::cout << "cannot divide by 0, abording..." << std::endl;
+        return 0;
+    } else {
+        return val1 / val2;
+    }
+}
 double Calculator::m_addition(double val1,  double val2) { return val1 + val2; }
 double Calculator::m_subtraction(double val1,  double val2) { return val1 - val2; }
-double Calculator::m_division(double val1,  double val2) { return val1 / val2; }
 double Calculator::m_multiplication(double val1,  double val2) { return val1 * val2; }
 
 void Calculator::operation() {
     UI.menu_display();
+    UI.move(2, 13, true, false);
     m_handle_choice();
 }
 
 void Calculator::m_set_result() {
-    std::cout << "\nresult: " << m_result;
+    UI.move(1, 3, false, false);
+    std::cout << "result  | " << m_result;
     std::cout.flush();
 
     history(m_result,  m_operation_type(m_oprt_type));
     m_sleep_timer(3);
-    system("clear");
+    UI.clear();
     operation();
 }
 
 void Calculator::m_input_number() {
     double number1, number2;
 
-    std::cout << "\n";
-    std::cout << "choose number 1: ";
+    UI.number_display();
+    UI.move(6, 2, true, false);
+    std::cout << "number 1 | ";
     std::cin >> number1;
-    std::cout << "choose number 2: ";
+    UI.move(1, 2, false, false);
+    std::cout << "number 2 | ";
     std::cin >> number2;
 
     m_number1 = static_cast<float>(number1);
@@ -102,19 +113,29 @@ void Calculator::m_handle_choice() {
                 return;
 
             case 5:
+                UI.clear();
                 UI.logs_display();
                 m_sleep_timer(3);
-                system("clear");
+                UI.clear();
+
                 UI.menu_display();
+                UI.move(2, 13, true, false);
                 m_handle_choice();
                 break;
 
             case 6:
-                std::cout << "removing the logs folder...\n";
+                UI.del_logs_display();
+                UI.move(2, 3, true, false);
+                std::cout << "removing the logs folder...";
+                std::cout.flush();
                 std::filesystem::remove_all("logs/");
-                std::cout << "logs folder removed\n";
                 m_sleep_timer(2);
-                system("clear");
+                UI.move(0, 3, false, false);
+                UI.move(1, 32, true, true);
+                std::cout << "     logs folder removed      ";
+                std::cout.flush();
+                m_sleep_timer(2);
+                UI.clear();
                 operation();
                 break;
 
@@ -124,10 +145,14 @@ void Calculator::m_handle_choice() {
             } // end of switch condition
 
         } else if (int(oprt) == 7) {
+            UI.move(1, 13, true, false);
             save_history_count();
-            std::cout << "thank to use my calculator, bye!";
+            UI.empty_display();
+            UI.move(2, 2, true, false);
+            std::cout << "thank to use my calculator, bye!\n\n";
             std::exit(0);
         } else {
+            UI.move(1, 13, true, false);
             std::cout << "unknow option!\n";
             oprt = 0;
             m_sleep_timer(3);
@@ -137,9 +162,10 @@ void Calculator::m_handle_choice() {
             // to avoid infinite loop
             // when an uncorrect numbed is provided
             if (int(oprt) == 0) {
-                system("clear");
+                UI.clear();
                 std::cin.clear();
                 UI.menu_display();
+                UI.move(2, 13, true, false);
                 m_handle_choice();
             }
 
