@@ -8,16 +8,8 @@ SRC = src/main.cpp \
       src/terminal_ui.cpp \
 
 # flags
-CXXFLAGS = -Wall \
-          -Wextra \
-          -Wpedantic \
-          -Wshadow \
-          -Wconversion \
-          -Wsign-conversion \
-          -Wnull-dereference \
-          -Wdouble-promotion \
-          -Wno-uninitialized \
-          --all-warnings \
+CXXFLAGS = -Wconversion \
+           -Wfloat-conversion \
 
 # parameters for user
 DEBUG-OPTI =
