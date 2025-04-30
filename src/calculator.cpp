@@ -79,15 +79,7 @@ void Calculator::m_handle_choice() {
     m_oprt_type = oprt;
 
     do {
-
-        if (int(oprt) == 1
-            || int(oprt) == 2
-            || int(oprt) == 3
-            || int(oprt) == 4
-            || int(oprt) == 5
-            || int(oprt) == 6) {
-
-            switch (int(oprt)) {
+        switch (int(oprt)) {
             case 1:
                 m_input_number();
                 m_result = static_cast<float>(m_addition(m_number1, m_number2));
@@ -139,38 +131,32 @@ void Calculator::m_handle_choice() {
                 operation();
                 break;
 
+            case 7:
+                UI.move(1, 13, true, false);
+                save_history_count();
+                UI.empty_display();
+                UI.move(2, 2, true, false);
+                std::cout << "thank to use my calculator, bye!\n\n";
+                std::exit(0);
+
             default:
-                std::cout << "ERROR: cannot found the good calcul method\n";
-                break;
-            } // end of switch condition
-
-        } else if (int(oprt) == 7) {
-            UI.move(1, 13, true, false);
-            save_history_count();
-            UI.empty_display();
-            UI.move(2, 2, true, false);
-            std::cout << "thank to use my calculator, bye!\n\n";
-            std::exit(0);
-        } else {
-            UI.move(1, 13, true, false);
-            std::cout << "unknow option!\n";
-            oprt = 0;
-            m_sleep_timer(3);
-            std::cin.ignore();
-            std::cin.clear();
-
-            // to avoid infinite loop
-            // when an uncorrect numbed is provided
-            if (int(oprt) == 0) {
-                UI.clear();
+                UI.move(1, 13, true, false);
+                std::cout << "unknow option!\n";
+                oprt = 0;
+                m_sleep_timer(3);
+                std::cin.ignore();
                 std::cin.clear();
-                UI.menu_display();
-                UI.move(2, 13, true, false);
-                m_handle_choice();
-            }
 
-            continue;
-        }
+                // to avoid infinite loop
+                // when an uncorrect numbed is provided
+                if (int(oprt) == 0) {
+                    UI.clear();
+                    std::cin.clear();
+                    UI.menu_display();
+                    UI.move(2, 13, true, false);
+                    m_handle_choice();
+                }
+        } // end of switch condition
 
     } while (true);
 }
