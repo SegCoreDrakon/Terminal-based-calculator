@@ -3,7 +3,7 @@
  * @brief the base of the calculator system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.2.3
+ * @version 0.2.5
  */
 
 #include <cstdio>
@@ -79,25 +79,25 @@ void Calculator::m_handle_choice() {
             switch (int(oprt)) {
             case 1:
                 m_input_number();
-                m_result = m_addition(m_number1, m_number2);
+                m_result = static_cast<float>(m_addition(m_number1, m_number2));
                 m_set_result();
                 return;
 
             case 2:
                 m_input_number();
-                m_result = m_subtraction(m_number1, m_number2);
+                m_result = static_cast<float>(m_subtraction(m_number1, m_number2));
                 m_set_result();
                 return;
 
             case 3:
                 m_input_number();
-                m_result = m_multiplication(m_number1, m_number2);
+                m_result = static_cast<float>(m_multiplication(m_number1, m_number2));
                 m_set_result();
                 return;
 
             case 4:
                 m_input_number();
-                m_result = m_division(m_number1, m_number2);
+                m_result = static_cast<float>(m_division(m_number1, m_number2));
                 m_set_result();
                 return;
 
@@ -114,7 +114,7 @@ void Calculator::m_handle_choice() {
                 std::filesystem::remove_all("logs/");
                 std::cout << "logs folder removed\n";
                 m_sleep_timer(2);
-                std::system("clear");
+                system("clear");
                 operation();
                 break;
 
