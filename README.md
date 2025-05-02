@@ -139,7 +139,9 @@ there might be errors in
    - **step 3**
      - Once the project is compiled, just type `./main` or the name of the executable you
        made, and the program will start. Follow the instructions in the program for using it.
-     
+   
+   
+  note: to use doxygen doc, simply type `doxygen doxygenConfig` to build the doc, and to use the doxygen doc in your favorite navigator enter in the doc/ folder and enter this commande line `python3 -m http.server 8080` and in your navigator write in the url bar this `http://localhost:8080` and you will normally see this picture ![doxygen_doc.png](pictures/doxygen_doc.png)
 ---
 
 # **How to contribute?**
