@@ -3,7 +3,7 @@
  * @brief the header of the UI system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.1.0
+ * @version 0.1.2
  */
 
 #pragma once
@@ -35,6 +35,8 @@ public:
      * @param D if true go left instead of right
      */
     void move(int X, int Y, bool B, bool D) const;
+
+    void delete_logs() const;
 };
 
 #endif // TERMINAL_UI_HPP
