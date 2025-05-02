@@ -3,7 +3,7 @@
  * @brief the header base of the calculator system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.1.6
+ * @version 0.1.7
  */
 
 #include <string>
@@ -79,9 +79,6 @@ private:
     double m_division(double val1, double val2);
     /** @} */ // end of groups Calculs
 
-    void m_set_result();
-    void m_input_number();
-
     /**
      * @brief check and apply correct options
      *
@@ -95,12 +92,17 @@ private:
      * the possiblity of infinity loop, remove them can cause undefined action
      * and may crash the whole program
      */
+
     void m_handle_choice();
 
-    void m_sleep_timer(int time);
+    void m_set_result();
+    void m_input_number();
 
     std::string m_operation_type(int oprt_type);
+
+    void result(double computation);
 };
+void sleep_timer(int time);
 
 #endif // CALCULATOR_HPP
 
