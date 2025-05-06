@@ -3,7 +3,7 @@
  * @brief the header of the UI system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.0.14
+ * @version 0.1.2
  */
 
 #pragma once
@@ -31,10 +31,12 @@ public:
      *
      * @param X vertical axe for the cursor
      * @param Y horizontal axe for the cursor
-     * @param B if true, go up the line instead of down
-     * @param D if true go left the line instead of right
+     * @param B if true, go up instead of down
+     * @param D if true go left instead of right
      */
     void move(int X, int Y, bool B, bool D) const;
+
+    void delete_logs() const;
 };
 
 #endif // TERMINAL_UI_HPP

@@ -85,33 +85,43 @@ except for `check logs` option.
 
 to compile the program, you have 2 options
 
-- **using make:** Faster already automated and compiles everything with 1 command `make`
+- **using cmake:** Faster already automated and compiles everything
 - **manually:** Slower but lets you learn more about how compiler work for compiled language
 
-## Using make:
+## Using cmake:
 
 ### **INSTALLATION**
 
-To use make, make sure you have it installed. If not, use the command adapted to your 
+To use cmake, make sure you have it installed. If not, use the command adapted to your 
 package manager
 
 
 | Distros      | Commands |
 |--------------|----------|
-| Arch-based   |`pacman -S make` |
-| Debian-based |`apt install make` |
-| Fedora-based |`dnf make` |
+| Arch-based   |`pacman -S cmake` |
+| Debian-based |`apt install cmake` |
+| Fedora-based |`dnf cmake` |
 
 ### **COMPILATION**
 
-Run `make` in any terminal you want, make sure you installed make before running the command.
+Run `cmake -GNinja -S. -Bbuild` in any terminal you want, make sure you installed make before running the command. `-B` is for the build folder, `-S` for the source (`.` mean source is where the CMakeLists.txt is) and `-G` for the build generator (the project has already Ninja as build generator but type it too to be sure that Ninja is really used for the build generator).
+
+The project have 3 other optional parameters:
+
+`-DSET_DEBUG=ON,OFF` Is for the debug option when the project is compiled.
+
+`-DSET_OPTI=1,2,3` Is for the optimization with GCC or CLANG, number can only be `1`, `2`, or `3`.
+
+`-USE_CLANG=ON,OFF` Is for using clang instead of gcc for compiling the project
+
+Then write this command `cmake --build build -- -v` to compile the project, `--build` ask to cmake that we build the project, and the `build` we build inside the build folder. And `-v` it's the verbose parameter, you can remove it if you want.
+
+after compile the project go inside the project and execude the executable in a terminal by writing this `build/terminal_calculator_X_X_X` where X is for the major, minot and patch version.
+
 
 Normally, makefile are created to compile only the program, but not execute it. To execute the 
 program immediately after compilling, type `make execute`
 and it will compile + execute the program.
-
-if you already used `make` you need to type `./calculator` to execute the program, and then, follow
-all instruction inside the calculator
 
 ## **Manually compilation**
 
@@ -139,7 +149,9 @@ there might be errors in
    - **step 3**
      - Once the project is compiled, just type `./main` or the name of the executable you
        made, and the program will start. Follow the instructions in the program for using it.
-     
+   
+   
+  note: to use doxygen doc, simply type `doxygen doxygenConfig` to build the doc, and to use the doxygen doc in your favorite navigator enter in the doc/ folder and enter this commande line `python3 -m http.server 8080` and in your navigator write in the url bar this `http://localhost:8080` and you will normally see this picture ![doxygen_doc.png](pictures/doxygen_doc.png)
 ---
 
 # **How to contribute?**
@@ -204,7 +216,7 @@ using multiple convention, like mixing `m_my_var` and `my_var`, even if both are
 The program has a few roadmaps that I want to complete before makings this project as 
 "terminated." Here are the roadmaps:
 
-  - **Make an aesthetic UI for the entire project:** - `[###--]` ~10%
+  - **Make an aesthetic UI for the entire project:** - `[###--]` ~40%
 
   - **Make the project fully safe for all dangerous calculations (like division by 0)** - 
 `[XXXXX]` not implemented yet.

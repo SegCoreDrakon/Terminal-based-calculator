@@ -8,9 +8,9 @@
 
 #include <iostream>
 #include <cstdlib>
-#include "../include/terminal_ui.hpp"
-
 #include <cstdlib>
+
+#include "../include/terminal_ui.hpp"
 
 UI::UI() {};
 UI::~UI() {};
@@ -77,14 +77,12 @@ void UI::clear() const {
 
 void UI::move(int X, int Y, bool B, bool D) const {
     if (B) {
-
         std::cout << "\033[" << X << "A";
         if (D) {
             std::cout << "\033[" << Y << "D";
         } else {
             std::cout << "\033[" << Y << "C";
         }
-
     } else {
         std::cout << "\033[" << X << "B";
         if (D) {

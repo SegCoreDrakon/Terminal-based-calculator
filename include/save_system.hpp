@@ -3,7 +3,7 @@
  * @brief the header of the save system
  * @author SegCoreDrakon
  * @date 2025-03-31
- * @version 0.0.5
+ * @version 0.0.6
  */
 
 #include <string>
