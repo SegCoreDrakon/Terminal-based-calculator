@@ -42,10 +42,8 @@ software as well.
 
 ## **Licence**
 
-The entire project is licensed under the GPL 3.0 or later license. This means you are allowed to 
-share, modify, and distribute the project without limitation, except for the GPL 3.0 restrictions, 
-such as if the project is released in a binary version, you must release the source code under the 
-same license (GPL 3.0 or a later version).
+The entire project is licensed under the MIT license. This means you are allowed to 
+share, modify, and distribute the project without limitation.
 
 - - -
 # **Small explanation of what the project does**
